@@ -25,20 +25,10 @@ app.get("/venue/findall", async (req, res) => {
         v.id AS venue_id,
         v.is_verified,
         v.menu_price,
-        v.owner_id,
-        v.country_code,
-        v.primary_phone_number,
-        v.secondary_phone_number,
-        v.license_number,
-        v.registration_number,
-        v.status,
         v.venue_name,
         v.email,
         v.address,
         v.description,
-        v.license_image_url,
-        v.pan_image_url,
-        v.permanent_account_number,
         vi.image_url
       FROM public.venue AS v
       LEFT JOIN public.venue_image AS vi ON v.id = vi.venue_id;
@@ -52,20 +42,10 @@ app.get("/venue/findall", async (req, res) => {
           venue_id: row.venue_id,
           is_verified: row.is_verified,
           menu_price: row.menu_price,
-          owner_id: row.owner_id,
-          country_code: row.country_code,
-          primary_phone_number: row.primary_phone_number,
-          secondary_phone_number: row.secondary_phone_number,
-          license_number: row.license_number,
-          registration_number: row.registration_number,
-          status: row.status,
           venue_name: row.venue_name,
           email: row.email,
           address: row.address,
           description: row.description,
-          license_image_url: row.license_image_url,
-          pan_image_url: row.pan_image_url,
-          permanent_account_number: row.permanent_account_number,
           images: [],  // Initialize an empty array for images
         };
         acc.push(venue);
